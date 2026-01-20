@@ -1,0 +1,26 @@
+#!/bin/bash
+# Pre-commit hook to prevent committing restricted files
+
+# Check for PDF files
+pdf_files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.pdf$' || true)
+if [ -n "$pdf_files" ]; then
+    echo "ERROR: Attempting to commit PDF files:"
+    echo "$pdf_files"
+    echo ""
+    echo "PDF files are restricted due to licensing constraints."
+    echo "Please remove them from the commit with: git reset HEAD <file>"
+    exit 1
+fi
+
+# Check for video files
+video_files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(mp4|avi|mov|mkv|webm)$' || true)
+if [ -n "$video_files" ]; then
+    echo "ERROR: Attempting to commit video files:"
+    echo "$video_files"
+    echo ""
+    echo "Video files are restricted due to licensing constraints."
+    echo "Please remove them from the commit with: git reset HEAD <file>"
+    exit 1
+fi
+
+exit 0
