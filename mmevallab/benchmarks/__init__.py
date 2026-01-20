@@ -3,6 +3,8 @@
 from collections.abc import Iterator
 from typing import Any
 
+# Import benchmark implementations to trigger registration
+from mmevallab.benchmarks import mmmu as _mmmu  # noqa: F401
 from mmevallab.core.datamodel import Example, Prediction
 from mmevallab.core.registry import Benchmark, register_benchmark
 
