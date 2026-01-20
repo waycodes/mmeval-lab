@@ -1,0 +1,326 @@
+{
+  "$defs": {
+    "DatasetVersion": {
+      "description": "Dataset version identifier for reproducibility.",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        },
+        "split": {
+          "title": "Split",
+          "type": "string"
+        },
+        "num_examples": {
+          "title": "Num Examples",
+          "type": "integer"
+        },
+        "content_hash": {
+          "description": "Hash of dataset content",
+          "title": "Content Hash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "version",
+        "split",
+        "num_examples",
+        "content_hash"
+      ],
+      "title": "DatasetVersion",
+      "type": "object"
+    },
+    "ExampleOutput": {
+      "description": "Per-example output from evaluation.",
+      "properties": {
+        "example_id": {
+          "title": "Example Id",
+          "type": "string"
+        },
+        "raw_output": {
+          "title": "Raw Output",
+          "type": "string"
+        },
+        "extracted_answer": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Extracted Answer"
+        },
+        "is_correct": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Is Correct"
+        },
+        "latency_ms": {
+          "title": "Latency Ms",
+          "type": "number"
+        },
+        "tokens_in": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tokens In"
+        },
+        "tokens_out": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tokens Out"
+        },
+        "slices": {
+          "items": {
+            "$ref": "#/$defs/SliceAnnotation"
+          },
+          "title": "Slices",
+          "type": "array"
+        },
+        "metadata": {
+          "additionalProperties": true,
+          "title": "Metadata",
+          "type": "object"
+        }
+      },
+      "required": [
+        "example_id",
+        "raw_output",
+        "latency_ms"
+      ],
+      "title": "ExampleOutput",
+      "type": "object"
+    },
+    "RunConfig": {
+      "description": "Configuration used for an evaluation run.",
+      "properties": {
+        "benchmark": {
+          "title": "Benchmark",
+          "type": "string"
+        },
+        "model": {
+          "title": "Model",
+          "type": "string"
+        },
+        "split": {
+          "title": "Split",
+          "type": "string"
+        },
+        "prompt_template": {
+          "title": "Prompt Template",
+          "type": "string"
+        },
+        "prompt_template_hash": {
+          "title": "Prompt Template Hash",
+          "type": "string"
+        },
+        "decoding_params": {
+          "additionalProperties": true,
+          "title": "Decoding Params",
+          "type": "object"
+        },
+        "extra": {
+          "additionalProperties": true,
+          "title": "Extra",
+          "type": "object"
+        }
+      },
+      "required": [
+        "benchmark",
+        "model",
+        "split",
+        "prompt_template",
+        "prompt_template_hash"
+      ],
+      "title": "RunConfig",
+      "type": "object"
+    },
+    "RunMetadata": {
+      "description": "Metadata for an evaluation run.",
+      "properties": {
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "config": {
+          "$ref": "#/$defs/RunConfig"
+        },
+        "dataset_version": {
+          "$ref": "#/$defs/DatasetVersion"
+        },
+        "code_version": {
+          "description": "Git commit hash",
+          "title": "Code Version",
+          "type": "string"
+        },
+        "python_version": {
+          "title": "Python Version",
+          "type": "string"
+        },
+        "package_version": {
+          "title": "Package Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "created_at",
+        "config",
+        "dataset_version",
+        "code_version",
+        "python_version",
+        "package_version"
+      ],
+      "title": "RunMetadata",
+      "type": "object"
+    },
+    "RunMetrics": {
+      "description": "Aggregated metrics for a run.",
+      "properties": {
+        "overall_accuracy": {
+          "title": "Overall Accuracy",
+          "type": "number"
+        },
+        "total_examples": {
+          "title": "Total Examples",
+          "type": "integer"
+        },
+        "correct": {
+          "title": "Correct",
+          "type": "integer"
+        },
+        "slice_metrics": {
+          "items": {
+            "$ref": "#/$defs/SliceMetrics"
+          },
+          "title": "Slice Metrics",
+          "type": "array"
+        },
+        "extra_metrics": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "title": "Extra Metrics",
+          "type": "object"
+        }
+      },
+      "required": [
+        "overall_accuracy",
+        "total_examples",
+        "correct"
+      ],
+      "title": "RunMetrics",
+      "type": "object"
+    },
+    "SliceAnnotation": {
+      "description": "Slice membership for an example.",
+      "properties": {
+        "slice_name": {
+          "title": "Slice Name",
+          "type": "string"
+        },
+        "slice_value": {
+          "title": "Slice Value",
+          "type": "string"
+        }
+      },
+      "required": [
+        "slice_name",
+        "slice_value"
+      ],
+      "title": "SliceAnnotation",
+      "type": "object"
+    },
+    "SliceMetrics": {
+      "description": "Metrics for a single slice.",
+      "properties": {
+        "slice_name": {
+          "title": "Slice Name",
+          "type": "string"
+        },
+        "slice_value": {
+          "title": "Slice Value",
+          "type": "string"
+        },
+        "count": {
+          "title": "Count",
+          "type": "integer"
+        },
+        "accuracy": {
+          "title": "Accuracy",
+          "type": "number"
+        },
+        "metrics": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "title": "Metrics",
+          "type": "object"
+        }
+      },
+      "required": [
+        "slice_name",
+        "slice_value",
+        "count",
+        "accuracy"
+      ],
+      "title": "SliceMetrics",
+      "type": "object"
+    }
+  },
+  "description": "Complete run artifact combining all outputs.",
+  "properties": {
+    "metadata": {
+      "$ref": "#/$defs/RunMetadata"
+    },
+    "metrics": {
+      "$ref": "#/$defs/RunMetrics"
+    },
+    "outputs": {
+      "items": {
+        "$ref": "#/$defs/ExampleOutput"
+      },
+      "title": "Outputs",
+      "type": "array"
+    }
+  },
+  "required": [
+    "metadata",
+    "metrics"
+  ],
+  "title": "RunArtifact",
+  "type": "object"
+}

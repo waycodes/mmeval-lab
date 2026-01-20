@@ -1,0 +1,950 @@
+project:
+  name: "MMEvalLab"
+  # Optional: keep IDs short (recommended). Set manually via your preferred bd prefix mechanism.
+  prefix_hint: "mml-"
+  root:
+    key: "ROOT"
+    type: "epic"
+    priority: 1
+    title: "MMEvalLab: Unified multimodal regression harness (MMMU + OmniDocBench + Video-MME)"
+    description: |
+      Build a unified multimodal regression harness that runs MMMU, OmniDocBench, Video-MME,
+      with contamination scans, slice mining, and data-diff attribution.
+      Deliverable: reproducible run artifacts, compare reports, and attribution outputs.
+
+issues:
+  # -------------------------
+  # EPIC: Beads + repo setup
+  # -------------------------
+  - key: "E1"
+    parent: "ROOT"
+    type: "epic"
+    priority: 1
+    title: "Repo + Beads scaffolding"
+    description: "Create repo skeleton, CI hygiene, and Beads workflow glue."
+
+  - key: "E1.1"
+    parent: "E1"
+    type: "task"
+    priority: 1
+    title: "Scaffold python package layout"
+    description: |
+      Create mmevallab/ package with submodules:
+      core/, benchmarks/, models/, eval/, contamination/, slicing/, attribution/, reporting/.
+      Acceptance: imports succeed; empty modules committed.
+
+  - key: "E1.2"
+    parent: "E1"
+    type: "task"
+    priority: 1
+    title: "Add dependency management + lockfile"
+    description: |
+      Choose uv/poetry/pip-tools; add lockfile; define extras: eval, video, pdf, faiss, dev.
+      Acceptance: fresh venv install works; optional extras documented.
+
+  - key: "E1.3"
+    parent: "E1"
+    type: "task"
+    priority: 2
+    title: "Add lint/type tooling + pre-commit"
+    description: |
+      Configure ruff/black + mypy/pyright + pre-commit.
+      Acceptance: `pre-commit run -a` clean; CI lint job green.
+
+  - key: "E1.4"
+    parent: "E1"
+    type: "task"
+    priority: 2
+    title: "Add CI smoke tests"
+    description: |
+      GitHub Actions: unit tests + type check + minimal smoke pipelines without datasets.
+      Acceptance: CI runs on PR; badge optional.
+
+  - key: "E1.5"
+    parent: "E1"
+    type: "task"
+    priority: 2
+    title: "Define run directory conventions"
+    description: |
+      runs/{run_id}/{config.yaml,predictions.jsonl,metrics.json,slices.parquet,report.html}
+      Acceptance: helper creates + validates structure.
+
+  # -------------------------
+  # EPIC: Kernel / contracts
+  # -------------------------
+  - key: "E2"
+    parent: "ROOT"
+    type: "epic"
+    priority: 1
+    title: "Kernel: schemas, caching, registries, reproducibility"
+    description: "Implement core datamodel + caching + plugin registry + run id hashing."
+
+  - key: "E2.1"
+    parent: "E2"
+    type: "task"
+    priority: 1
+    title: "Write benchmark contracts docs"
+    description: |
+      Create docs/benchmarks/{mmmu,omnidocbench,videomme}.md capturing IO + scoring expectations.
+      Acceptance: each doc includes splits, scoring notes, license constraints.
+
+  - key: "E2.2"
+    parent: "E2"
+    type: "task"
+    priority: 1
+    title: "Define unified run artifact schema"
+    description: |
+      Specify run metadata, dataset version ids, per-example outputs, slice annotations.
+      Acceptance: JSON schema + markdown doc committed.
+
+  - key: "E2.3"
+    parent: "E2"
+    type: "task"
+    priority: 1
+    title: "Implement deterministic run-id hashing"
+    description: |
+      Hash canonicalized config + dataset ids + code version.
+      Acceptance: golden tests for stable ids.
+
+  - key: "E2.4"
+    parent: "E2"
+    type: "task"
+    priority: 1
+    title: "Implement Example + Prediction datamodel"
+    description: |
+      Example: example_id, inputs (text/img/video refs), metadata.
+      Prediction: raw output, extracted answer, latency, tokens.
+      Acceptance: used by all adapters.
+
+  - key: "E2.5"
+    parent: "E2"
+    type: "task"
+    priority: 1
+    title: "Implement benchmark/model registry"
+    description: |
+      register_benchmark(name,factory) + register_model(name,factory).
+      Acceptance: dummy benchmark + dummy model work end-to-end.
+
+  - key: "E2.6"
+    parent: "E2"
+    type: "task"
+    priority: 2
+    title: "Implement two-layer caching interface"
+    description: |
+      Inference cache keyed by (model_hash, benchmark, example_id, prompt_hash).
+      Derived cache for render/frame/extract outputs.
+      Acceptance: rerun skips cached examples.
+
+  - key: "E2.7"
+    parent: "E2"
+    type: "task"
+    priority: 2
+    title: "Implement predict-only mode"
+    description: |
+      Save predictions.jsonl without scoring (for withheld-label test sets).
+      Acceptance: CLI supports --predict-only; docs updated.
+
+  - key: "E2.8"
+    parent: "E2"
+    type: "task"
+    priority: 2
+    title: "Record reproducibility metadata snapshot"
+    description: |
+      Persist python/torch/cuda versions, git commit, prompt templates, decoding params.
+      Acceptance: runs/{id}/repro.json always present.
+
+  # -------------------------
+  # EPIC: Model backends
+  # -------------------------
+  - key: "E3"
+    parent: "ROOT"
+    type: "epic"
+    priority: 1
+    title: "Model runners (HF local + optional API backends)"
+    description: "Unified ModelRunner for text+image and video frames; caching + retries."
+
+  - key: "E3.1"
+    parent: "E3"
+    type: "task"
+    priority: 1
+    title: "Define ModelRunner interface"
+    description: |
+      generate(example)->prediction; supports multi-image + multi-frame.
+      Acceptance: dummy model conforms; kernel runner uses interface.
+
+  - key: "E3.2"
+    parent: "E3"
+    type: "task"
+    priority: 2
+    title: "Implement HF Transformers VLM backend"
+    description: |
+      Support processor+generate; batching; device map.
+      Acceptance: runs on toy VLM for smoke benchmark.
+
+  - key: "E3.3"
+    parent: "E3"
+    type: "task"
+    priority: 3
+    title: "Optional: implement vLLM backend (if supported)"
+    description: |
+      Add vLLM runner for faster large-batch generation where applicable.
+      Acceptance: benchmark run matches HF outputs within extraction tolerance.
+
+  - key: "E3.4"
+    parent: "E3"
+    type: "task"
+    priority: 3
+    title: "Optional: implement OpenAI-compatible API backend"
+    description: |
+      Chat-completions style, image inputs if supported; retries/timeouts.
+      Acceptance: produces same Prediction schema.
+
+  - key: "E3.5"
+    parent: "E3"
+    type: "task"
+    priority: 2
+    title: "Implement request canonicalization + cache keys"
+    description: |
+      Hash prompt template version + media hashes + decoding params.
+      Acceptance: cache hit rate increases; no false hits in tests.
+
+  - key: "E3.6"
+    parent: "E3"
+    type: "task"
+    priority: 2
+    title: "Implement resume-safe inference execution"
+    description: |
+      Partial runs can resume by skipping cached examples.
+      Acceptance: integration test simulates crash + resume.
+
+  # -------------------------
+  # EPIC: Unified runner
+  # -------------------------
+  - key: "E4"
+    parent: "ROOT"
+    type: "epic"
+    priority: 1
+    title: "Unified eval runner + CLI"
+    description: "Implement mmeval run: load benchmark, infer, save, score, report."
+
+  - key: "E4.1"
+    parent: "E4"
+    type: "task"
+    priority: 1
+    title: "Implement CLI skeleton"
+    description: |
+      Commands: mmeval run/compare/contam/slices/attrib/export (stubs ok initially).
+      Acceptance: help text + config loading works.
+
+  - key: "E4.2"
+    parent: "E4"
+    type: "task"
+    priority: 1
+    title: "Implement `mmeval run` end-to-end"
+    description: |
+      Given config: load benchmark -> infer -> save predictions -> score -> write run dir.
+      Acceptance: works on MMMU smoke set with dummy model.
+
+  - key: "E4.3"
+    parent: "E4"
+    type: "task"
+    priority: 2
+    title: "Implement distributed/sharded execution"
+    description: |
+      Shard by example_id across processes; merge predictions deterministically.
+      Acceptance: multi-proc equals single-proc metrics.
+
+  - key: "E4.4"
+    parent: "E4"
+    type: "task"
+    priority: 2
+    title: "Add sample logging artifacts"
+    description: |
+      Save samples.jsonl (inputs summary, output, correctness).
+      Acceptance: report links to samples.
+
+  # -------------------------
+  # EPIC: MMMU
+  # -------------------------
+  - key: "B1"
+    parent: "ROOT"
+    type: "epic"
+    priority: 1
+    title: "Benchmark adapter: MMMU"
+    description: "Loader, prompt templates, MCQ extraction, scoring + breakdowns."
+
+  - key: "B1.1"
+    parent: "B1"
+    type: "task"
+    priority: 1
+    title: "Implement MMMU dataset loader"
+    description: |
+      Load dev/val; optionally test in predict-only.
+      Acceptance: yields Example objects with stable example_id.
+
+  - key: "B1.2"
+    parent: "B1"
+    type: "task"
+    priority: 1
+    title: "Implement MMMU normalization + metadata"
+    description: |
+      Build prompt (question+options), attach images, store discipline/subject/subfield.
+      Acceptance: metadata coverage > 99%.
+
+  - key: "B1.3"
+    parent: "B1"
+    type: "task"
+    priority: 1
+    title: "Implement MMMU prompt templates (versioned)"
+    description: |
+      Provide v1 minimal MCQ, v2 stricter output constraint.
+      Acceptance: template hash tracked in repro.json.
+
+  - key: "B1.4"
+    parent: "B1"
+    type: "task"
+    priority: 1
+    title: "Implement robust MCQ answer extraction"
+    description: |
+      Extract A/B/C/D from messy text.
+      Acceptance: unit tests cover adversarial outputs.
+
+  - key: "B1.5"
+    parent: "B1"
+    type: "task"
+    priority: 2
+    title: "Implement MMMU scoring + group breakdowns"
+    description: |
+      Overall accuracy + by discipline/subject/subfield/image_type.
+      Acceptance: metrics.json includes group tables.
+
+  - key: "B1.6"
+    parent: "B1"
+    type: "task"
+    priority: 3
+    title: "Optional: MMMU submission export (test)"
+    description: |
+      Export required JSON for submission workflow.
+      Acceptance: format validated against official expectations.
+
+  - key: "B1.7"
+    parent: "B1"
+    type: "task"
+    priority: 2
+    title: "Create MMMU smoke subset config"
+    description: |
+      10-20 stable example ids for CI.
+      Acceptance: CI smoke job uses subset without full download.
+
+  # -------------------------
+  # EPIC: OmniDocBench
+  # -------------------------
+  - key: "B2"
+    parent: "ROOT"
+    type: "epic"
+    priority: 1
+    title: "Benchmark adapter: OmniDocBench"
+    description: "PDF render pipeline, schema parser, eval wrapper, slice breakdowns."
+
+  - key: "B2.1"
+    parent: "B2"
+    type: "task"
+    priority: 1
+    title: "Implement OmniDocBench acquisition + loader"
+    description: |
+      Materialize PDFs + annotation JSON.
+      Acceptance: loader yields Example with pdf/page refs.
+
+  - key: "B2.2"
+    parent: "B2"
+    type: "task"
+    priority: 1
+    title: "Implement OmniDocBench JSON schema parser"
+    description: |
+      Parse layout elements and target fields; validate required keys.
+      Acceptance: schema validation passes on full dataset.
+
+  - key: "B2.3"
+    parent: "B2"
+    type: "task"
+    priority: 1
+    title: "Implement PDF page render (cacheable)"
+    description: |
+      Render pages to images at configured DPI; cache by (pdf_hash,dpi).
+      Acceptance: reruns reuse renders; deterministic outputs.
+
+  - key: "B2.4"
+    parent: "B2"
+    type: "task"
+    priority: 2
+    title: "Model OmniDocBench task variants"
+    description: |
+      E2E markdown, OCR text, formula, table; optionally layout detection.
+      Acceptance: each variant is separate sub-benchmark id.
+
+  - key: "B2.5"
+    parent: "B2"
+    type: "task"
+    priority: 2
+    title: "Implement output canonicalization"
+    description: |
+      Normalize markdown/latex/table formatting to reduce metric noise.
+      Acceptance: normalization unit tests on fixtures.
+
+  - key: "B2.6"
+    parent: "B2"
+    type: "task"
+    priority: 1
+    title: "Wrap official evaluation as callable module"
+    description: |
+      Call official metrics (TEDS etc) from harness.
+      Acceptance: wrapper matches official CLI results on sample.
+
+  - key: "B2.7"
+    parent: "B2"
+    type: "task"
+    priority: 2
+    title: "Compute OmniDocBench slice breakdowns"
+    description: |
+      By doc/layout/language + attribute tags.
+      Acceptance: metrics.json includes per-slice outputs.
+
+  - key: "B2.8"
+    parent: "B2"
+    type: "task"
+    priority: 2
+    title: "Create OmniDocBench smoke subset config"
+    description: |
+      10 representative pages across doc types.
+      Acceptance: CI uses subset.
+
+  - key: "B2.9"
+    parent: "B2"
+    type: "task"
+    priority: 1
+    title: "Add license guardrails for PDF data"
+    description: |
+      Ensure PDFs not committed; .gitignore + checks.
+      Acceptance: pre-commit prevents accidental add.
+
+  # -------------------------
+  # EPIC: Video-MME
+  # -------------------------
+  - key: "B3"
+    parent: "ROOT"
+    type: "epic"
+    priority: 1
+    title: "Benchmark adapter: Video-MME"
+    description: "Video loader, frame sampling, subtitle alignment, eval wrapper + breakdowns."
+
+  - key: "B3.1"
+    parent: "B3"
+    type: "task"
+    priority: 1
+    title: "Implement Video-MME license gate"
+    description: |
+      Require explicit config flag before use; avoid redistributing videos.
+      Acceptance: loader refuses without flag.
+
+  - key: "B3.2"
+    parent: "B3"
+    type: "task"
+    priority: 1
+    title: "Implement Video-MME acquisition + loader"
+    description: |
+      Load annotations + local video paths; integrity checks.
+      Acceptance: yields Example with video refs + MCQ fields.
+
+  - key: "B3.3"
+    parent: "B3"
+    type: "task"
+    priority: 1
+    title: "Implement frame sampling pipeline (cacheable)"
+    description: |
+      Uniform N frames and fps-based options; store timestamps manifest.
+      Acceptance: deterministic extraction given seed/config.
+
+  - key: "B3.4"
+    parent: "B3"
+    type: "task"
+    priority: 1
+    title: "Implement subtitle alignment to sampled frames"
+    description: |
+      Ensure subtitles correspond to sampled frames per benchmark guidance.
+      Acceptance: alignment unit tests with synthetic subtitles.
+
+  - key: "B3.5"
+    parent: "B3"
+    type: "task"
+    priority: 2
+    title: "Implement prompt templates (versioned)"
+    description: |
+      With-subtitles and no-subtitles variants.
+      Acceptance: template hashes tracked.
+
+  - key: "B3.6"
+    parent: "B3"
+    type: "task"
+    priority: 1
+    title: "Implement official output JSON + eval wrapper"
+    description: |
+      Export predictions in official JSON format; run official eval script.
+      Acceptance: wrapper matches official scoring on sample.
+
+  - key: "B3.7"
+    parent: "B3"
+    type: "task"
+    priority: 2
+    title: "Compute category breakdown metrics"
+    description: |
+      Duration/domain/subcategory/task-type breakdown.
+      Acceptance: metrics.json contains breakdown tables.
+
+  - key: "B3.8"
+    parent: "B3"
+    type: "task"
+    priority: 3
+    title: "Create Video-MME smoke subset config"
+    description: |
+      5-10 short videos (local only), cached frames, no redistribution.
+      Acceptance: smoke run exercises frame+subtitle pipeline.
+
+  # -------------------------
+  # EPIC: Compare / regression
+  # -------------------------
+  - key: "R1"
+    parent: "ROOT"
+    type: "epic"
+    priority: 1
+    title: "Regression harness: compare, deltas, gates"
+    description: "Run-to-run diffs, example diffs, significance, regression gates."
+
+  - key: "R1.1"
+    parent: "R1"
+    type: "task"
+    priority: 1
+    title: "Implement `mmeval compare` metrics diff"
+    description: |
+      Compare overall + per-slice metrics between two runs.
+      Acceptance: compare.json + compare.md emitted.
+
+  - key: "R1.2"
+    parent: "R1"
+    type: "task"
+    priority: 2
+    title: "Add bootstrap confidence intervals for key metrics"
+    description: |
+      Bootstrap accuracy deltas per slice; include CIs.
+      Acceptance: compare_stats.json contains CI fields.
+
+  - key: "R1.3"
+    parent: "R1"
+    type: "task"
+    priority: 2
+    title: "Implement slice regression gates"
+    description: |
+      Fail compare if critical slices regress beyond threshold.
+      Acceptance: --fail-on-regression flag works.
+
+  - key: "R1.4"
+    parent: "R1"
+    type: "task"
+    priority: 2
+    title: "Implement example-level diff view"
+    description: |
+      Emit correct→incorrect and incorrect→correct sets.
+      Acceptance: diff_examples.jsonl saved.
+
+  - key: "R1.5"
+    parent: "R1"
+    type: "task"
+    priority: 2
+    title: "Add prompt-drift detection in compare"
+    description: |
+      Highlight prompt/template hash differences in report.
+      Acceptance: compare report shows drift section.
+
+  # -------------------------
+  # EPIC: Contamination scanning
+  # -------------------------
+  - key: "C1"
+    parent: "ROOT"
+    type: "epic"
+    priority: 1
+    title: "Contamination scanning (text/image/video)"
+    description: "Index training manifests; scan benchmark overlap; tag contaminated slices."
+
+  - key: "C1.1"
+    parent: "C1"
+    type: "task"
+    priority: 1
+    title: "Define training manifest schema + loader"
+    description: |
+      Schema: sample_id, modality, text, image/video refs, source, license, timestamp.
+      Acceptance: streaming loader supports parquet/jsonl.
+
+  - key: "C1.2"
+    parent: "C1"
+    type: "task"
+    priority: 1
+    title: "Implement text exact match fingerprints"
+    description: |
+      Normalize text, compute sha256 hashes.
+      Acceptance: exact matches found in synthetic fixtures.
+
+  - key: "C1.3"
+    parent: "C1"
+    type: "task"
+    priority: 2
+    title: "Implement text near-dup fingerprints (MinHash/LSH)"
+    description: |
+      Compute signatures and LSH index; thresholded lookup.
+      Acceptance: catches paraphrase-like near duplicates in fixtures.
+
+  - key: "C1.4"
+    parent: "C1"
+    type: "task"
+    priority: 2
+    title: "Implement image/PDF page perceptual hashing (PDQ)"
+    description: |
+      Hash benchmark images and rendered PDF pages; match by Hamming distance.
+      Acceptance: catches resized/cropped near-dups in fixtures.
+
+  - key: "C1.5"
+    parent: "C1"
+    type: "task"
+    priority: 3
+    title: "Implement video hashing (TMK+PDQF) or frame-hash fallback"
+    description: |
+      Prefer robust video hash; fallback: sample frames + PDQ aggregate.
+      Acceptance: matches identical video clips in fixtures.
+
+  - key: "C1.6"
+    parent: "C1"
+    type: "task"
+    priority: 1
+    title: "Implement `mmeval contamination scan` CLI"
+    description: |
+      Build/load indices; scan benchmarks; emit contamination_report.json + summary markdown.
+      Acceptance: end-to-end run produces report and tags.
+
+  - key: "C1.7"
+    parent: "C1"
+    type: "task"
+    priority: 2
+    title: "Add contamination slice tags"
+    description: |
+      Tag examples as contam_exact/contam_near/clean; export in slices.parquet.
+      Acceptance: compare can filter contaminated slices.
+
+  # -------------------------
+  # EPIC: Slice mining
+  # -------------------------
+  - key: "S1"
+    parent: "ROOT"
+    type: "epic"
+    priority: 1
+    title: "Slice system: built-in + discovered slices"
+    description: "Slice spec DSL, built-in benchmark slices, discovery and ranking."
+
+  - key: "S1.1"
+    parent: "S1"
+    type: "task"
+    priority: 1
+    title: "Implement slice spec language + evaluator"
+    description: |
+      YAML slice definitions over example metadata + prediction fields.
+      Acceptance: slice engine produces slices.parquet deterministically.
+
+  - key: "S1.2"
+    parent: "S1"
+    type: "task"
+    priority: 1
+    title: "Implement built-in slices: MMMU"
+    description: |
+      discipline/subject/subfield/image_type slices.
+      Acceptance: slice counts match metadata totals.
+
+  - key: "S1.3"
+    parent: "S1"
+    type: "task"
+    priority: 1
+    title: "Implement built-in slices: OmniDocBench"
+    description: |
+      doc/layout/language + attribute tags.
+      Acceptance: slices computed and included in metrics breakdown.
+
+  - key: "S1.4"
+    parent: "S1"
+    type: "task"
+    priority: 1
+    title: "Implement built-in slices: Video-MME"
+    description: |
+      duration/domain/subcategory/task-type slices.
+      Acceptance: slice metrics present in metrics.json.
+
+  - key: "S1.5"
+    parent: "S1"
+    type: "task"
+    priority: 2
+    title: "Implement slice ranking (worst + regressions)"
+    description: |
+      Rank by low perf and by negative delta vs overall.
+      Acceptance: compare report shows top-k slices.
+
+  - key: "S1.6"
+    parent: "S1"
+    type: "task"
+    priority: 3
+    title: "Implement automated slice discovery (feature conjunction search)"
+    description: |
+      Search metadata conjunctions correlated with high error.
+      Acceptance: outputs candidate slices with support/precision metrics.
+
+  # -------------------------
+  # EPIC: Data-diff attribution
+  # -------------------------
+  - key: "A1"
+    parent: "ROOT"
+    type: "epic"
+    priority: 1
+    title: "Data-diff attribution (what data changes moved what slices)"
+    description: "Compute dataset diffs; attribute slice deltas to data changes."
+
+  - key: "A1.1"
+    parent: "A1"
+    type: "task"
+    priority: 1
+    title: "Implement dataset diff engine"
+    description: |
+      Compare manifests old vs new: added/removed/modified; group by modality/source/domain/lang.
+      Acceptance: diff_report.json emitted.
+
+  - key: "A1.2"
+    parent: "A1"
+    type: "task"
+    priority: 1
+    title: "Implement run delta canonicalization"
+    description: |
+      Convert two run dirs into per-example + per-slice delta objects.
+      Acceptance: stable delta object used by attribution.
+
+  - key: "A1.3"
+    parent: "A1"
+    type: "task"
+    priority: 2
+    title: "Implement similarity-based attribution baseline"
+    description: |
+      Embed added samples + eval examples; attribute similarity mass to slices; rank contributing diff groups.
+      Acceptance: attribution_summary.json created; includes exemplars.
+
+  - key: "A1.4"
+    parent: "A1"
+    type: "task"
+    priority: 3
+    title: "Optional: influence-style attribution prototype (TracIn-like)"
+    description: |
+      Prototype influence on small finetune; validate pipeline.
+      Acceptance: sanity checks show signal > randomized baseline.
+
+  - key: "A1.5"
+    parent: "A1"
+    type: "task"
+    priority: 2
+    title: "Implement attribution sanity checks"
+    description: |
+      Randomize diff labels; ensure attribution signal collapses.
+      Acceptance: attribution_sanity.json recorded per run.
+
+  - key: "A1.6"
+    parent: "A1"
+    type: "task"
+    priority: 2
+    title: "Link data diffs to contamination risk"
+    description: |
+      Scan newly added training samples against benchmarks; flag leakage risks.
+      Acceptance: diff_contamination_risk.json produced.
+
+  # -------------------------
+  # EPIC: Failure mode mining
+  # -------------------------
+  - key: "F1"
+    parent: "ROOT"
+    type: "epic"
+    priority: 2
+    title: "Failure mode mining"
+    description: "Rule-based failure labels + optional LLM labeling; correlate with diffs."
+
+  - key: "F1.1"
+    parent: "F1"
+    type: "task"
+    priority: 2
+    title: "Define failure-mode taxonomy + rule-based labels"
+    description: |
+      Format errors, extraction errors, OCR errors, grounding errors, etc.
+      Acceptance: failure labels added to per-example records.
+
+  - key: "F1.2"
+    parent: "F1"
+    type: "task"
+    priority: 3
+    title: "Optional: LLM-assisted failure labeling (cached)"
+    description: |
+      For incorrect examples, classify failure reason; cache results.
+      Acceptance: labeling cost capped; can disable via config.
+
+  - key: "F1.3"
+    parent: "F1"
+    type: "task"
+    priority: 3
+    title: "Correlate diffs with failure-mode deltas"
+    description: |
+      Treat failure modes as slices and run attribution.
+      Acceptance: failure_mode_attribution.json produced.
+
+  # -------------------------
+  # EPIC: Reporting + export
+  # -------------------------
+  - key: "P1"
+    parent: "ROOT"
+    type: "epic"
+    priority: 2
+    title: "Reporting + export"
+    description: "HTML run reports + compare reports + redacted artifact packs."
+
+  - key: "P1.1"
+    parent: "P1"
+    type: "task"
+    priority: 2
+    title: "Generate single-run HTML report"
+    description: |
+      Include overall metrics, slice leaderboard, contamination summary, common failures.
+      Acceptance: runs/{id}/report.html generated deterministically.
+
+  - key: "P1.2"
+    parent: "P1"
+    type: "task"
+    priority: 2
+    title: "Generate compare HTML report"
+    description: |
+      Include deltas, top changed examples, attribution highlights.
+      Acceptance: compare report created from two run dirs.
+
+  - key: "P1.3"
+    parent: "P1"
+    type: "task"
+    priority: 1
+    title: "Implement artifact pack export (license-safe)"
+    description: |
+      Bundle configs, metrics, reports; redact raw datasets and restricted media.
+      Acceptance: export tarball contains no Video-MME raw assets.
+
+  # -------------------------
+  # EPIC: Docs + tests
+  # -------------------------
+  - key: "D1"
+    parent: "ROOT"
+    type: "epic"
+    priority: 2
+    title: "Documentation + reproducible recipes"
+    description: "Quickstart + per-benchmark guides + extension docs."
+
+  - key: "D1.1"
+    parent: "D1"
+    type: "task"
+    priority: 2
+    title: "Write quickstart (3 benchmarks, 1 model)"
+    description: |
+      Step-by-step to run MMMU/ODB/VMME with a sample model config.
+      Acceptance: new user can run smoke suite in <30 minutes.
+
+  - key: "D1.2"
+    parent: "D1"
+    type: "task"
+    priority: 2
+    title: "Write 'add benchmark' and 'add model' docs"
+    description: |
+      Registry usage, Example/Prediction schema, scoring hooks.
+      Acceptance: docs include minimal code skeletons.
+
+  - key: "T1"
+    parent: "ROOT"
+    type: "epic"
+    priority: 1
+    title: "Testing + CI quality gates"
+    description: "Unit tests for extraction/normalization + integration smoke suites."
+
+  - key: "T1.1"
+    parent: "T1"
+    type: "task"
+    priority: 1
+    title: "Unit tests: MCQ answer extraction"
+    description: |
+      Property tests on messy outputs; regression fixtures.
+      Acceptance: >50 adversarial cases.
+
+  - key: "T1.2"
+    parent: "T1"
+    type: "task"
+    priority: 1
+    title: "Unit tests: OmniDocBench schema + normalization"
+    description: |
+      Schema validation fixtures; normalization snapshots.
+      Acceptance: tests cover latex/table cases.
+
+  - key: "T1.3"
+    parent: "T1"
+    type: "task"
+    priority: 2
+    title: "Integration: MMMU smoke end-to-end"
+    description: |
+      Dummy model run on smoke ids -> metrics emitted.
+      Acceptance: CI runs job without full dataset.
+
+  - key: "T1.4"
+    parent: "T1"
+    type: "task"
+    priority: 2
+    title: "Integration: video frame+subtitle alignment test"
+    description: |
+      Synthetic subtitle alignment; timestamp edge cases.
+      Acceptance: deterministic expected outputs.
+
+  - key: "T1.5"
+    parent: "T1"
+    type: "task"
+    priority: 2
+    title: "Attribution sanity test"
+    description: |
+      Randomized label control eliminates signal.
+      Acceptance: sanity check enforced in CI for attribution module.
+
+dependencies:
+  # High-level ordering: kernel + model runner before benchmarks + runner.
+  - type: "blocks"
+    from: "E2"
+    to: "E4"
+  - type: "blocks"
+    from: "E3"
+    to: "E4"
+  - type: "blocks"
+    from: "E4"
+    to: "R1"
+  - type: "blocks"
+    from: "E4"
+    to: "C1"
+  - type: "blocks"
+    from: "S1"
+    to: "A1"
+  - type: "blocks"
+    from: "C1"
+    to: "A1"
+  - type: "blocks"
+    from: "B1"
+    to: "E4"
+  - type: "blocks"
+    from: "B2"
+    to: "E4"
+  - type: "blocks"
+    from: "B3"
+    to: "E4"
