@@ -1,0 +1,100 @@
+{"id": "train_clean_0014", "text": "What is the role of mitochondria? (variant 14)", "source": "textbook"}
+{"id": "train_clean_0033", "text": "Describe the structure of DNA. (variant 33)", "source": "textbook"}
+{"id": "train_clean_0024", "text": "Describe the structure of DNA. (variant 24)", "source": "textbook"}
+{"id": "train_clean_0042", "text": "What is the significance of the Renaissance? (variant 42)", "source": "textbook"}
+{"id": "train_clean_0027", "text": "Describe the structure of DNA. (variant 27)", "source": "textbook"}
+{"id": "train_contam_0002", "text": "What is the correct interpretation of this figure?", "source": "web_scrape"}
+{"id": "train_clean_0039", "text": "Describe the structure of DNA. (variant 39)", "source": "textbook"}
+{"id": "train_clean_0028", "text": "What are the symptoms of diabetes? (variant 28)", "source": "textbook"}
+{"id": "train_clean_0032", "text": "Describe the water cycle. (variant 32)", "source": "textbook"}
+{"id": "train_clean_0075", "text": "Explain Newton's laws of motion. (variant 75)", "source": "textbook"}
+{"id": "train_clean_0069", "text": "What are the principles of supply and demand? (variant 69)", "source": "textbook"}
+{"id": "train_clean_0018", "text": "Explain the concept of thermodynamics. (variant 18)", "source": "textbook"}
+{"id": "train_clean_0087", "text": "What are the symptoms of diabetes? (variant 87)", "source": "textbook"}
+{"id": "train_clean_0017", "text": "Describe the structure of DNA. (variant 17)", "source": "textbook"}
+{"id": "train_clean_0083", "text": "Describe the water cycle. (variant 83)", "source": "textbook"}
+{"id": "train_clean_0076", "text": "What are the symptoms of diabetes? (variant 76)", "source": "textbook"}
+{"id": "train_clean_0084", "text": "What is the significance of the Renaissance? (variant 84)", "source": "textbook"}
+{"id": "train_clean_0045", "text": "What is the role of mitochondria? (variant 45)", "source": "textbook"}
+{"id": "train_clean_0052", "text": "Explain Newton's laws of motion. (variant 52)", "source": "textbook"}
+{"id": "train_clean_0007", "text": "Describe the water cycle. (variant 7)", "source": "textbook"}
+{"id": "train_clean_0093", "text": "What are the principles of supply and demand? (variant 93)", "source": "textbook"}
+{"id": "train_clean_0082", "text": "Describe the structure of DNA. (variant 82)", "source": "textbook"}
+{"id": "train_clean_0002", "text": "Calculate the derivative of x^2. (variant 2)", "source": "textbook"}
+{"id": "train_clean_0059", "text": "What are the principles of supply and demand? (variant 59)", "source": "textbook"}
+{"id": "train_clean_0050", "text": "What are the principles of supply and demand? (variant 50)", "source": "textbook"}
+{"id": "train_clean_0063", "text": "What is the significance of the Renaissance? (variant 63)", "source": "textbook"}
+{"id": "train_clean_0009", "text": "What is the role of mitochondria? (variant 9)", "source": "textbook"}
+{"id": "train_clean_0077", "text": "Describe the water cycle. (variant 77)", "source": "textbook"}
+{"id": "train_clean_0058", "text": "Describe the structure of DNA. (variant 58)", "source": "textbook"}
+{"id": "train_clean_0016", "text": "What are the symptoms of diabetes? (variant 16)", "source": "textbook"}
+{"id": "train_clean_0015", "text": "What are the symptoms of diabetes? (variant 15)", "source": "textbook"}
+{"id": "train_clean_0061", "text": "Explain the concept of thermodynamics. (variant 61)", "source": "textbook"}
+{"id": "train_clean_0037", "text": "Describe the water cycle. (variant 37)", "source": "textbook"}
+{"id": "train_clean_0056", "text": "Explain Newton's laws of motion. (variant 56)", "source": "textbook"}
+{"id": "train_contam_0000", "text": "What conclusion can be drawn from this data?", "source": "web_scrape"}
+{"id": "train_clean_0094", "text": "What are the principles of supply and demand? (variant 94)", "source": "textbook"}
+{"id": "train_clean_0006", "text": "Explain Newton's laws of motion. (variant 6)", "source": "textbook"}
+{"id": "train_clean_0022", "text": "Describe the structure of DNA. (variant 22)", "source": "textbook"}
+{"id": "train_clean_0062", "text": "Describe the water cycle. (variant 62)", "source": "textbook"}
+{"id": "train_clean_0005", "text": "Describe the water cycle. (variant 5)", "source": "textbook"}
+{"id": "train_clean_0054", "text": "Calculate the derivative of x^2. (variant 54)", "source": "textbook"}
+{"id": "train_clean_0013", "text": "Describe the water cycle. (variant 13)", "source": "textbook"}
+{"id": "train_clean_0067", "text": "What are the principles of supply and demand? (variant 67)", "source": "textbook"}
+{"id": "train_clean_0034", "text": "What are the symptoms of diabetes? (variant 34)", "source": "textbook"}
+{"id": "train_clean_0004", "text": "Explain Newton's laws of motion. (variant 4)", "source": "textbook"}
+{"id": "train_clean_0043", "text": "What is the significance of the Renaissance? (variant 43)", "source": "textbook"}
+{"id": "train_clean_0044", "text": "What are the principles of supply and demand? (variant 44)", "source": "textbook"}
+{"id": "train_clean_0051", "text": "Describe the water cycle. (variant 51)", "source": "textbook"}
+{"id": "train_clean_0036", "text": "Explain the concept of thermodynamics. (variant 36)", "source": "textbook"}
+{"id": "train_clean_0031", "text": "What is the significance of the Renaissance? (variant 31)", "source": "textbook"}
+{"id": "train_clean_0078", "text": "What are the principles of supply and demand? (variant 78)", "source": "textbook"}
+{"id": "train_contam_0001", "text": "Based on the chart, which value is highest?", "source": "web_scrape"}
+{"id": "train_clean_0068", "text": "What is the role of mitochondria? (variant 68)", "source": "textbook"}
+{"id": "train_clean_0053", "text": "Calculate the derivative of x^2. (variant 53)", "source": "textbook"}
+{"id": "train_clean_0029", "text": "Describe the water cycle. (variant 29)", "source": "textbook"}
+{"id": "train_clean_0064", "text": "Calculate the derivative of x^2. (variant 64)", "source": "textbook"}
+{"id": "train_clean_0000", "text": "Describe the structure of DNA. (variant 0)", "source": "textbook"}
+{"id": "train_clean_0011", "text": "Describe the water cycle. (variant 11)", "source": "textbook"}
+{"id": "train_clean_0057", "text": "Describe the structure of DNA. (variant 57)", "source": "textbook"}
+{"id": "train_clean_0074", "text": "Explain the concept of thermodynamics. (variant 74)", "source": "textbook"}
+{"id": "train_clean_0091", "text": "Describe the structure of DNA. (variant 91)", "source": "textbook"}
+{"id": "train_clean_0010", "text": "What are the symptoms of diabetes? (variant 10)", "source": "textbook"}
+{"id": "train_clean_0089", "text": "Describe the water cycle. (variant 89)", "source": "textbook"}
+{"id": "train_clean_0066", "text": "Describe the water cycle. (variant 66)", "source": "textbook"}
+{"id": "train_clean_0071", "text": "Explain Newton's laws of motion. (variant 71)", "source": "textbook"}
+{"id": "train_clean_0025", "text": "What is the role of mitochondria? (variant 25)", "source": "textbook"}
+{"id": "train_clean_0035", "text": "What are the principles of supply and demand? (variant 35)", "source": "textbook"}
+{"id": "train_clean_0026", "text": "Explain Newton's laws of motion. (variant 26)", "source": "textbook"}
+{"id": "train_clean_0079", "text": "Calculate the derivative of x^2. (variant 79)", "source": "textbook"}
+{"id": "train_clean_0080", "text": "Describe the structure of DNA. (variant 80)", "source": "textbook"}
+{"id": "train_clean_0019", "text": "What are the principles of supply and demand? (variant 19)", "source": "textbook"}
+{"id": "train_clean_0092", "text": "Explain the concept of thermodynamics. (variant 92)", "source": "textbook"}
+{"id": "train_clean_0020", "text": "What are the principles of supply and demand? (variant 20)", "source": "textbook"}
+{"id": "train_clean_0003", "text": "What are the principles of supply and demand? (variant 3)", "source": "textbook"}
+{"id": "train_clean_0041", "text": "Describe the structure of DNA. (variant 41)", "source": "textbook"}
+{"id": "train_clean_0047", "text": "What are the principles of supply and demand? (variant 47)", "source": "textbook"}
+{"id": "train_clean_0038", "text": "Explain the concept of thermodynamics. (variant 38)", "source": "textbook"}
+{"id": "train_clean_0049", "text": "Explain the concept of thermodynamics. (variant 49)", "source": "textbook"}
+{"id": "train_clean_0072", "text": "Calculate the derivative of x^2. (variant 72)", "source": "textbook"}
+{"id": "train_clean_0073", "text": "What are the symptoms of diabetes? (variant 73)", "source": "textbook"}
+{"id": "train_clean_0090", "text": "Explain the concept of thermodynamics. (variant 90)", "source": "textbook"}
+{"id": "train_clean_0081", "text": "What are the principles of supply and demand? (variant 81)", "source": "textbook"}
+{"id": "train_clean_0070", "text": "What is the significance of the Renaissance? (variant 70)", "source": "textbook"}
+{"id": "train_clean_0021", "text": "What are the symptoms of diabetes? (variant 21)", "source": "textbook"}
+{"id": "train_clean_0048", "text": "Describe the water cycle. (variant 48)", "source": "textbook"}
+{"id": "train_clean_0023", "text": "What are the principles of supply and demand? (variant 23)", "source": "textbook"}
+{"id": "train_clean_0085", "text": "What are the principles of supply and demand? (variant 85)", "source": "textbook"}
+{"id": "train_clean_0001", "text": "Explain Newton's laws of motion. (variant 1)", "source": "textbook"}
+{"id": "train_clean_0008", "text": "Explain the concept of thermodynamics. (variant 8)", "source": "textbook"}
+{"id": "train_clean_0046", "text": "Describe the water cycle. (variant 46)", "source": "textbook"}
+{"id": "train_clean_0096", "text": "Explain the concept of thermodynamics. (variant 96)", "source": "textbook"}
+{"id": "train_clean_0055", "text": "What is the role of mitochondria? (variant 55)", "source": "textbook"}
+{"id": "train_clean_0086", "text": "What is the role of mitochondria? (variant 86)", "source": "textbook"}
+{"id": "train_clean_0030", "text": "What is the role of mitochondria? (variant 30)", "source": "textbook"}
+{"id": "train_clean_0060", "text": "Calculate the derivative of x^2. (variant 60)", "source": "textbook"}
+{"id": "train_clean_0065", "text": "Describe the structure of DNA. (variant 65)", "source": "textbook"}
+{"id": "train_clean_0088", "text": "Explain Newton's laws of motion. (variant 88)", "source": "textbook"}
+{"id": "train_clean_0012", "text": "Calculate the derivative of x^2. (variant 12)", "source": "textbook"}
+{"id": "train_clean_0040", "text": "Explain the concept of thermodynamics. (variant 40)", "source": "textbook"}
+{"id": "train_clean_0095", "text": "Describe the structure of DNA. (variant 95)", "source": "textbook"}

@@ -1,0 +1,109 @@
+{
+  "overall_accuracy": 0.74,
+  "correct": 37,
+  "total": 50,
+  "by_discipline": {
+    "Science": {
+      "accuracy": 0.6363636363636364,
+      "correct": 7,
+      "total": 11
+    },
+    "Humanities": {
+      "accuracy": 0.8,
+      "correct": 12,
+      "total": 15
+    },
+    "Engineering": {
+      "accuracy": 0.8333333333333334,
+      "correct": 5,
+      "total": 6
+    },
+    "Health": {
+      "accuracy": 0.6363636363636364,
+      "correct": 7,
+      "total": 11
+    },
+    "Business": {
+      "accuracy": 0.8571428571428571,
+      "correct": 6,
+      "total": 7
+    }
+  },
+  "by_subject": {
+    "Physics": {
+      "accuracy": 0.6666666666666666,
+      "correct": 4,
+      "total": 6
+    },
+    "Literature": {
+      "accuracy": 0.6666666666666666,
+      "correct": 4,
+      "total": 6
+    },
+    "History": {
+      "accuracy": 1.0,
+      "correct": 6,
+      "total": 6
+    },
+    "Mechanical": {
+      "accuracy": 1.0,
+      "correct": 1,
+      "total": 1
+    },
+    "Chemistry": {
+      "accuracy": 0.5,
+      "correct": 1,
+      "total": 2
+    },
+    "Pharmacy": {
+      "accuracy": 0.8333333333333334,
+      "correct": 5,
+      "total": 6
+    },
+    "Economics": {
+      "accuracy": 1.0,
+      "correct": 3,
+      "total": 3
+    },
+    "Philosophy": {
+      "accuracy": 0.6666666666666666,
+      "correct": 2,
+      "total": 3
+    },
+    "Accounting": {
+      "accuracy": 0.6666666666666666,
+      "correct": 2,
+      "total": 3
+    },
+    "Medicine": {
+      "accuracy": 0.5,
+      "correct": 1,
+      "total": 2
+    },
+    "Nursing": {
+      "accuracy": 0.3333333333333333,
+      "correct": 1,
+      "total": 3
+    },
+    "Biology": {
+      "accuracy": 0.6666666666666666,
+      "correct": 2,
+      "total": 3
+    },
+    "Computer Science": {
+      "accuracy": 1.0,
+      "correct": 3,
+      "total": 3
+    },
+    "Electrical": {
+      "accuracy": 0.5,
+      "correct": 1,
+      "total": 2
+    },
+    "Marketing": {
+      "accuracy": 1.0,
+      "correct": 1,
+      "total": 1
+    }
+  }
+}

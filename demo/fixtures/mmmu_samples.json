@@ -1,0 +1,902 @@
+[
+  {
+    "id": "mmmu_0000",
+    "question": "What is the primary function shown in the diagram?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "A",
+    "metadata": {
+      "discipline": "Science",
+      "subject": "Physics",
+      "image_type": "photo"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0001",
+    "question": "What is the correct interpretation of this figure?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "A",
+    "metadata": {
+      "discipline": "Humanities",
+      "subject": "Literature",
+      "image_type": "diagram"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0002",
+    "question": "What conclusion can be drawn from this data?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "A",
+    "metadata": {
+      "discipline": "Humanities",
+      "subject": "History",
+      "image_type": "equation"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0003",
+    "question": "What conclusion can be drawn from this data?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "A",
+    "metadata": {
+      "discipline": "Engineering",
+      "subject": "Mechanical",
+      "image_type": "table"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0004",
+    "question": "What conclusion can be drawn from this data?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "A",
+    "metadata": {
+      "discipline": "Science",
+      "subject": "Chemistry",
+      "image_type": "diagram"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0005",
+    "question": "What is the correct interpretation of this figure?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "C",
+    "metadata": {
+      "discipline": "Health",
+      "subject": "Pharmacy",
+      "image_type": "diagram"
+    },
+    "is_correct_baseline": false,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0006",
+    "question": "Based on the chart, which value is highest?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "C",
+    "metadata": {
+      "discipline": "Humanities",
+      "subject": "Literature",
+      "image_type": "equation"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0007",
+    "question": "What conclusion can be drawn from this data?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "B",
+    "metadata": {
+      "discipline": "Science",
+      "subject": "Physics",
+      "image_type": "diagram"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0008",
+    "question": "What is the primary function shown in the diagram?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "B",
+    "metadata": {
+      "discipline": "Business",
+      "subject": "Economics",
+      "image_type": "chart"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0009",
+    "question": "What is the correct interpretation of this figure?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "B",
+    "metadata": {
+      "discipline": "Humanities",
+      "subject": "Philosophy",
+      "image_type": "chart"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0010",
+    "question": "Which option best describes the relationship shown?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "C",
+    "metadata": {
+      "discipline": "Business",
+      "subject": "Accounting",
+      "image_type": "chart"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0011",
+    "question": "Which option best describes the relationship shown?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "D",
+    "metadata": {
+      "discipline": "Science",
+      "subject": "Physics",
+      "image_type": "equation"
+    },
+    "is_correct_baseline": false,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0012",
+    "question": "What is the correct interpretation of this figure?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "C",
+    "metadata": {
+      "discipline": "Health",
+      "subject": "Medicine",
+      "image_type": "photo"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0013",
+    "question": "Based on the chart, which value is highest?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "D",
+    "metadata": {
+      "discipline": "Humanities",
+      "subject": "Literature",
+      "image_type": "equation"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0014",
+    "question": "Which option best describes the relationship shown?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "A",
+    "metadata": {
+      "discipline": "Science",
+      "subject": "Physics",
+      "image_type": "diagram"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0015",
+    "question": "What is the correct interpretation of this figure?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "A",
+    "metadata": {
+      "discipline": "Health",
+      "subject": "Nursing",
+      "image_type": "equation"
+    },
+    "is_correct_baseline": false,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0016",
+    "question": "What conclusion can be drawn from this data?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "A",
+    "metadata": {
+      "discipline": "Science",
+      "subject": "Biology",
+      "image_type": "equation"
+    },
+    "is_correct_baseline": false,
+    "is_correct_candidate": false
+  },
+  {
+    "id": "mmmu_0017",
+    "question": "What conclusion can be drawn from this data?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "B",
+    "metadata": {
+      "discipline": "Business",
+      "subject": "Economics",
+      "image_type": "chart"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": false
+  },
+  {
+    "id": "mmmu_0018",
+    "question": "Based on the chart, which value is highest?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "B",
+    "metadata": {
+      "discipline": "Humanities",
+      "subject": "History",
+      "image_type": "photo"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0019",
+    "question": "What is the primary function shown in the diagram?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "C",
+    "metadata": {
+      "discipline": "Business",
+      "subject": "Accounting",
+      "image_type": "equation"
+    },
+    "is_correct_baseline": false,
+    "is_correct_candidate": false
+  },
+  {
+    "id": "mmmu_0020",
+    "question": "What conclusion can be drawn from this data?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "B",
+    "metadata": {
+      "discipline": "Health",
+      "subject": "Medicine",
+      "image_type": "diagram"
+    },
+    "is_correct_baseline": false,
+    "is_correct_candidate": false
+  },
+  {
+    "id": "mmmu_0021",
+    "question": "Which option best describes the relationship shown?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "A",
+    "metadata": {
+      "discipline": "Science",
+      "subject": "Physics",
+      "image_type": "equation"
+    },
+    "is_correct_baseline": false,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0022",
+    "question": "Based on the chart, which value is highest?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "C",
+    "metadata": {
+      "discipline": "Humanities",
+      "subject": "History",
+      "image_type": "chart"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": false
+  },
+  {
+    "id": "mmmu_0023",
+    "question": "Based on the chart, which value is highest?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "C",
+    "metadata": {
+      "discipline": "Humanities",
+      "subject": "Philosophy",
+      "image_type": "table"
+    },
+    "is_correct_baseline": false,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0024",
+    "question": "What is the primary function shown in the diagram?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "B",
+    "metadata": {
+      "discipline": "Health",
+      "subject": "Pharmacy",
+      "image_type": "photo"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0025",
+    "question": "What is the correct interpretation of this figure?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "B",
+    "metadata": {
+      "discipline": "Engineering",
+      "subject": "Computer Science",
+      "image_type": "photo"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0026",
+    "question": "What conclusion can be drawn from this data?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "A",
+    "metadata": {
+      "discipline": "Science",
+      "subject": "Physics",
+      "image_type": "diagram"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": false
+  },
+  {
+    "id": "mmmu_0027",
+    "question": "Based on the chart, which value is highest?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "D",
+    "metadata": {
+      "discipline": "Humanities",
+      "subject": "History",
+      "image_type": "photo"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0028",
+    "question": "Which option best describes the relationship shown?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "C",
+    "metadata": {
+      "discipline": "Engineering",
+      "subject": "Electrical",
+      "image_type": "table"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0029",
+    "question": "What is the primary function shown in the diagram?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "A",
+    "metadata": {
+      "discipline": "Health",
+      "subject": "Nursing",
+      "image_type": "table"
+    },
+    "is_correct_baseline": false,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0030",
+    "question": "Based on the chart, which value is highest?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "B",
+    "metadata": {
+      "discipline": "Health",
+      "subject": "Pharmacy",
+      "image_type": "photo"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0031",
+    "question": "Based on the chart, which value is highest?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "A",
+    "metadata": {
+      "discipline": "Humanities",
+      "subject": "Literature",
+      "image_type": "chart"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0032",
+    "question": "What is the primary function shown in the diagram?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "A",
+    "metadata": {
+      "discipline": "Health",
+      "subject": "Pharmacy",
+      "image_type": "diagram"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": false
+  },
+  {
+    "id": "mmmu_0033",
+    "question": "Which option best describes the relationship shown?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "A",
+    "metadata": {
+      "discipline": "Engineering",
+      "subject": "Computer Science",
+      "image_type": "table"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0034",
+    "question": "Which option best describes the relationship shown?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "C",
+    "metadata": {
+      "discipline": "Engineering",
+      "subject": "Electrical",
+      "image_type": "diagram"
+    },
+    "is_correct_baseline": false,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0035",
+    "question": "Based on the chart, which value is highest?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "C",
+    "metadata": {
+      "discipline": "Health",
+      "subject": "Pharmacy",
+      "image_type": "equation"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0036",
+    "question": "What conclusion can be drawn from this data?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "A",
+    "metadata": {
+      "discipline": "Engineering",
+      "subject": "Computer Science",
+      "image_type": "equation"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0037",
+    "question": "Based on the chart, which value is highest?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "A",
+    "metadata": {
+      "discipline": "Science",
+      "subject": "Biology",
+      "image_type": "table"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": false
+  },
+  {
+    "id": "mmmu_0038",
+    "question": "Based on the chart, which value is highest?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "D",
+    "metadata": {
+      "discipline": "Humanities",
+      "subject": "History",
+      "image_type": "chart"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0039",
+    "question": "What is the primary function shown in the diagram?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "D",
+    "metadata": {
+      "discipline": "Science",
+      "subject": "Biology",
+      "image_type": "chart"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0040",
+    "question": "What conclusion can be drawn from this data?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "B",
+    "metadata": {
+      "discipline": "Humanities",
+      "subject": "Philosophy",
+      "image_type": "equation"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0041",
+    "question": "What conclusion can be drawn from this data?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "A",
+    "metadata": {
+      "discipline": "Business",
+      "subject": "Economics",
+      "image_type": "chart"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0042",
+    "question": "What is the primary function shown in the diagram?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "B",
+    "metadata": {
+      "discipline": "Science",
+      "subject": "Chemistry",
+      "image_type": "equation"
+    },
+    "is_correct_baseline": false,
+    "is_correct_candidate": false
+  },
+  {
+    "id": "mmmu_0043",
+    "question": "Based on the chart, which value is highest?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "C",
+    "metadata": {
+      "discipline": "Humanities",
+      "subject": "Literature",
+      "image_type": "chart"
+    },
+    "is_correct_baseline": false,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0044",
+    "question": "What is the correct interpretation of this figure?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "A",
+    "metadata": {
+      "discipline": "Business",
+      "subject": "Accounting",
+      "image_type": "table"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0045",
+    "question": "What is the primary function shown in the diagram?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "A",
+    "metadata": {
+      "discipline": "Humanities",
+      "subject": "Literature",
+      "image_type": "diagram"
+    },
+    "is_correct_baseline": false,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0046",
+    "question": "What conclusion can be drawn from this data?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "B",
+    "metadata": {
+      "discipline": "Humanities",
+      "subject": "History",
+      "image_type": "photo"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0047",
+    "question": "What is the primary function shown in the diagram?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "A",
+    "metadata": {
+      "discipline": "Business",
+      "subject": "Marketing",
+      "image_type": "table"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0048",
+    "question": "What conclusion can be drawn from this data?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "B",
+    "metadata": {
+      "discipline": "Health",
+      "subject": "Nursing",
+      "image_type": "diagram"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  },
+  {
+    "id": "mmmu_0049",
+    "question": "Based on the chart, which value is highest?",
+    "options": [
+      "A. Option 1",
+      "B. Option 2",
+      "C. Option 3",
+      "D. Option 4"
+    ],
+    "answer": "A",
+    "metadata": {
+      "discipline": "Health",
+      "subject": "Pharmacy",
+      "image_type": "table"
+    },
+    "is_correct_baseline": true,
+    "is_correct_candidate": true
+  }
+]
