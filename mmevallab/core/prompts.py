@@ -75,3 +75,40 @@ def format_mmmu_prompt(
     options_str = "\n".join(options)
     prompt = template.format(question=question, options=options_str)
     return prompt, template.hash
+
+
+# OmniDocBench templates
+OMNIDOC_TEMPLATES = {
+    "e2e_markdown": PromptTemplate(
+        "omnidoc_e2e", "v1", "Convert this document page to Markdown format."
+    ),
+    "ocr_text": PromptTemplate(
+        "omnidoc_ocr", "v1", "Extract all text from this document image."
+    ),
+    "formula": PromptTemplate(
+        "omnidoc_formula", "v1", "Extract the mathematical formula as LaTeX."
+    ),
+    "table": PromptTemplate(
+        "omnidoc_table", "v1", "Extract the table as HTML."
+    ),
+}
+
+
+# Video-MME templates
+VIDEOMME_TEMPLATES = {
+    "v1": PromptTemplate(
+        "videomme", "v1",
+        "{question}\n\n{options}\n\nAnswer with the letter of the correct option.",
+    ),
+}
+
+
+def get_template(benchmark: str, task: str = "default", version: str = "v1") -> PromptTemplate:
+    """Get prompt template for any benchmark."""
+    if benchmark == "mmmu":
+        return MMMU_TEMPLATES[version]
+    elif benchmark == "omnidocbench":
+        return OMNIDOC_TEMPLATES.get(task, OMNIDOC_TEMPLATES["e2e_markdown"])
+    elif benchmark == "videomme":
+        return VIDEOMME_TEMPLATES[version]
+    raise ValueError(f"Unknown benchmark: {benchmark}")

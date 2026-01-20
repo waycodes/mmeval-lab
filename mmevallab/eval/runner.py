@@ -24,6 +24,7 @@ def run_evaluation(
     limit: int | None = None,
     benchmark_kwargs: dict[str, Any] | None = None,
     model_kwargs: dict[str, Any] | None = None,
+    predict_only: bool = False,
 ) -> dict[str, Any]:
     """Run evaluation on a benchmark with a model.
 
@@ -35,6 +36,7 @@ def run_evaluation(
         limit: Limit number of examples (for testing)
         benchmark_kwargs: Additional kwargs for benchmark creation
         model_kwargs: Additional kwargs for model creation
+        predict_only: If True, skip scoring and only generate predictions
 
     Returns:
         Dict with run_id, metrics, and output paths
@@ -90,8 +92,11 @@ def run_evaluation(
         # Generate prediction
         prediction = model.generate(example)
 
-        # Score
-        result = benchmark.score(example, prediction)
+        # Score (unless predict_only)
+        if predict_only:
+            result: dict[str, Any] = {}
+        else:
+            result = benchmark.score(example, prediction)
 
         # Record
         pred_record = {

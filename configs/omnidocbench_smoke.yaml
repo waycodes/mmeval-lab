@@ -1,0 +1,13 @@
+# OmniDocBench smoke test config
+benchmark: omnidocbench
+task: e2e_markdown
+split: test
+limit: 30
+
+sampling:
+  strategy: stratified
+  field: doc_type
+  per_stratum: 6
+
+model:
+  name: dummy

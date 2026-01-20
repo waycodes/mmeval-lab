@@ -1,0 +1,13 @@
+# MMMU smoke test config - small subset for CI/testing
+benchmark: mmmu
+split: validation
+limit: 50
+
+# Sample across disciplines
+sampling:
+  strategy: stratified
+  field: discipline
+  per_stratum: 10
+
+model:
+  name: dummy  # Replace with actual model for real runs

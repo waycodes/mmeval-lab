@@ -1,0 +1,16 @@
+# Video-MME smoke test config
+benchmark: videomme
+split: test
+limit: 20
+
+sampling:
+  strategy: stratified
+  field: duration_category
+  per_stratum: 5
+
+model:
+  name: dummy
+
+video:
+  max_frames: 8
+  frame_strategy: uniform
