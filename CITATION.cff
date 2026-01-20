@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software in research, please cite it as below."
+title: "MMEvalLab: Unified Multimodal Regression Harness"
+authors:
+  - family-names: "Bharadwaj"
+    given-names: "Varun"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+repository-code: "https://github.com/waycodes/mmeval-lab"
+license: "Proprietary"
+version: "0.1.0"
+date-released: "2026-01-20"
+keywords:
+  - multimodal
+  - evaluation
+  - benchmark
+  - vision-language-models
+  - regression-testing
+abstract: >-
+  A unified regression harness for multimodal AI evaluation across
+  MMMU, OmniDocBench, and Video-MME benchmarks. Provides regression
+  detection, slice analysis, contamination scanning, and reproducibility
+  tracking for vision-language model development.

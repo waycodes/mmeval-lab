@@ -4,13 +4,13 @@ version = "0.1.0"
 description = "Unified multimodal regression harness for MMMU, OmniDocBench, Video-MME"
 readme = "README.md"
 requires-python = ">=3.10"
-license = {text = "Apache-2.0"}
-authors = [{name = "MMEvalLab Team"}]
+license = {text = "Proprietary"}
+authors = [{name = "Varun Bharadwaj"}]
 keywords = ["multimodal", "evaluation", "benchmark", "vlm", "regression"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: Apache Software License",
+    "License :: Other/Proprietary License",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",

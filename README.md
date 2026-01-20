@@ -4,7 +4,9 @@
 
 [![CI](https://github.com/waycodes/mmeval-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/waycodes/mmeval-lab/actions)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](LICENSE)
+[![License: Proprietary](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
+
+> **⚠️ License Notice:** This is a portfolio/research-only project. No commercial or professional use permitted. Research use requires citation. See [LICENSE](LICENSE) and [CITATION.cff](CITATION.cff).
 
 ---
 
@@ -216,7 +218,24 @@ mypy mmevallab/ --ignore-missing-imports
 
 ## License
 
-Apache 2.0 — See [LICENSE](LICENSE) for details.
+**Proprietary — Portfolio/Research-Only**
+
+- ❌ No commercial or professional use
+- ❌ No redistribution or derivative works
+- ✅ Research use permitted with required citation
+
+If you use this software in research, please cite it:
+
+```bibtex
+@software{mmeval_lab,
+  author = {Bharadwaj, Varun},
+  title = {MMEvalLab: Unified Multimodal Regression Harness},
+  year = {2026},
+  url = {https://github.com/waycodes/mmeval-lab}
+}
+```
+
+See [LICENSE](LICENSE), [CITATION.cff](CITATION.cff), and [NOTICE](NOTICE) for full terms.
 
 ---
 
