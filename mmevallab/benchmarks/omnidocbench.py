@@ -172,7 +172,7 @@ def _normalize_latex(text: str) -> str:
     text = text.strip()
     # Remove common LaTeX wrappers
     text = re.sub(r"^\$+|\$+$", "", text)
-    text = re.sub(r"^\\[|\]$", "", text)
+    text = re.sub(r"^\\\[|\\\]$", "", text)
     # Normalize whitespace
     text = re.sub(r"\s+", " ", text)
     return text

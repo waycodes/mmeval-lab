@@ -83,12 +83,34 @@ def compare(run1: str, run2: str, output: Optional[str], format: str) -> None:
 
 @main.command("contam")
 @click.option("--benchmark", "-b", type=str, required=True, help="Benchmark to scan")
-@click.option("--manifest", "-m", type=click.Path(exists=True), help="Training manifest")
+@click.option("--manifest", "-m", type=click.Path(exists=True), required=True, help="Manifest")
 @click.option("--output", "-o", type=click.Path(), help="Output report path")
-def contamination(benchmark: str, manifest: Optional[str], output: Optional[str]) -> None:
+@click.option("--split", "-s", type=str, default="validation", help="Benchmark split")
+@click.option("--limit", type=int, help="Limit examples")
+def contamination(
+    benchmark: str, manifest: str, output: Optional[str], split: str, limit: Optional[int]
+) -> None:
     """Scan for contamination between training data and benchmark."""
-    click.echo(f"mmeval contam: benchmark={benchmark}")
-    click.echo("Not yet implemented")
+    from mmevallab.contamination.scanner import run_contamination_scan
+
+    click.echo(f"Scanning {benchmark} ({split}) against {manifest}")
+
+    report = run_contamination_scan(
+        benchmark_name=benchmark,
+        manifest_path=manifest,
+        output_path=output,
+        split=split,
+        limit=limit,
+    )
+
+    click.echo(f"Total examples: {report['total_examples']}")
+    click.echo(f"Exact matches: {report['exact_matches']}")
+    click.echo(f"Near matches: {report['near_matches']}")
+    click.echo(f"Clean: {report['clean']}")
+    click.echo(f"Contamination rate: {report['contamination_rate']:.2%}")
+
+    if output:
+        click.echo(f"Report written to: {output}")
 
 
 @main.command()
@@ -116,11 +138,14 @@ def attribution(
 @main.command()
 @click.argument("run_dir", type=click.Path(exists=True))
 @click.option("--output", "-o", type=click.Path(), required=True, help="Output archive path")
-@click.option("--format", "-f", type=click.Choice(["tar.gz", "zip"]), default="tar.gz")
-def export(run_dir: str, output: str, format: str) -> None:
+@click.option("--format", "-f", "fmt", type=click.Choice(["tar.gz", "zip"]), default="tar.gz")
+def export(run_dir: str, output: str, fmt: str) -> None:
     """Export run artifacts (license-safe)."""
-    click.echo(f"mmeval export: {run_dir} -> {output}")
-    click.echo("Not yet implemented")
+    from mmevallab.reporting.export import export_artifact_pack
+
+    click.echo(f"Exporting {run_dir} to {output}")
+    result = export_artifact_pack(run_dir, output, format=fmt)
+    click.echo(f"Created: {result}")
 
 
 if __name__ == "__main__":
